@@ -3,6 +3,9 @@ import logo from "./logo.svg";
 import "./App.css";
 
 export default class App extends Component {
+  componentDidMount(): void {
+    console.log("Hi yako...!");
+  }
   render(): React.ReactNode {
     return (
       <div className="App">
