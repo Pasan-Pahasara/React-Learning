@@ -6,24 +6,15 @@ export default class App extends Component {
   componentDidMount(): void {
     console.log("Hi yako...!");
   }
-  render(): React.ReactNode {
+
+  render(){
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <div className="bg-black min-h-screen text-center">
+        <h1>Hi</h1>
+        <h1>Hello</h1>
+        <h2 className="text-cyan-300">Hello world</h2>
+        <h3 className="text-cyan-300">Hello world</h3>
+    </div>
     );
   }
 }
