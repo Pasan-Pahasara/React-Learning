@@ -16,6 +16,9 @@ module.exports = {
       }
       } 
     },
+    fontFamily:{
+      'Ubuntu' :['Ubuntu','sans-serif']
+    }
    },
   plugins: [],
 }

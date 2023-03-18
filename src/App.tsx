@@ -6,6 +6,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
 import Counter from "./components/Counter";
+import Header from "./components/Header";
+import Content from "./components/Content";
 
 export default class App extends Component {
   componentDidMount(): void {
@@ -14,12 +16,14 @@ export default class App extends Component {
 
   render(){
     return (
-      <div className="bg-yellow-50 min-h-screen text-center pt-2">
+      <div className="bg-yellow-50 min-h-screen text-center">
         {/* <Home/>
         <About/>
         <Contact/>
         <Profile/> */}
-        <Counter/>
+        {/* <Counter/> */}
+        <Header/>
+        <Content/>
     </div>
     );
   }

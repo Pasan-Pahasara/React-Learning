@@ -13,6 +13,19 @@ export default class Counter extends Component<CounterProps, CounterState> {
     this.state = {
       count: 0,
     };
+    console.log();
+  }
+
+  componentDidMount() {
+    console.log("Component Mounted...!")
+  }
+
+  componentDidUpdate() {
+    console.log("Component Updated...!")
+  }
+
+  componentWillUnmount() {
+    console.log("Component Unmounted...!")
   }
 
   increaseCount = () => {
