@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import Home from "./pages/Home/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Profile from "./pages/Profile";
 
 export default class App extends Component {
   componentDidMount(): void {
@@ -10,10 +14,10 @@ export default class App extends Component {
   render(){
     return (
       <div className="bg-black min-h-screen text-center">
-        <h1>Hi</h1>
-        <h1>Hello</h1>
-        <h2 className="text-cyan-300">Hello world</h2>
-        <h3 className="text-cyan-300">Hello world</h3>
+        <Home/>
+        <About/>
+        <Contact/>
+        <Profile/>
     </div>
     );
   }
