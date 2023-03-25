@@ -16,7 +16,10 @@ export default class AboutIntro extends Component {
             sunt commodi animi. Lorem ipsum dolor sit amet consectetur
             adipisicing elit. Minima, dolores minus. Dolorem fugit pariatur
             dolorum. Maiores alias odit dolore mollitia, ea dolor quibusdam eius
-            natus odio totam sunt commodi animi.
+            natus odio totam sunt commodi animi.Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Minima, dolores minus. Dolorem fugit
+            pariatur dolorum. Maiores alias odit dolore mollitia, ea dolor
+            quibusdam eius natus odio totam sunt commodi animi.
           </p>
         </section>
       </div>
