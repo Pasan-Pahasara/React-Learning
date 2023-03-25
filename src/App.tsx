@@ -16,7 +16,7 @@ export default class App extends Component {
 
   render(){
     return (
-      <div className="bg-yellow-50 min-h-screen text-center">
+      <div className="bg-yellow-50 min-h-screen">
         {/* <Home/>
         <About/>
         <Contact/>
