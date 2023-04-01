@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
 import userImage from "../../assets/user.png";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default class Header extends Component {
   render() {
@@ -17,7 +18,7 @@ export default class Header extends Component {
               <div className="w-1/2">
                 <nav className="flex w-full gap-6">
                   <NavLink
-                    to={"/"}
+                    to={"/home"}
                     className={({ isActive }) =>
                       isActive ? activeLink : normalLink
                     }
@@ -42,6 +43,11 @@ export default class Header extends Component {
                   </NavLink>
                   <NavLink to={"/profile"}>
                     <img src={userImage} alt="userImage" className="w-7 h-7" />
+                  </NavLink>
+                  
+                  
+                  <NavLink to={"/"} className="cursor-pointer">
+                    <LogoutIcon />
                   </NavLink>
                 </nav>
               </div>

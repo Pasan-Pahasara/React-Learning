@@ -22,7 +22,7 @@ export default class App extends Component {
         <Contact/>
         <Profile/> */}
         {/* <Counter/> */}
-        <Header/>
+        {/* <Header/> */}
         <Content/>
     </div>
     );
