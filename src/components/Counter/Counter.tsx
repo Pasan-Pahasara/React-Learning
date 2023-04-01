@@ -35,6 +35,11 @@ export default class Counter extends Component<CounterProps, CounterState> {
   decreaseCount = () => {
     //decrease count by one
     this.setState({ count: this.state.count - 1 });
+
+    // this.setState((prevState)=>({
+    //   ...prevState,
+    //   count:prevState.count -1
+    // }))
   };
 
   render() {
