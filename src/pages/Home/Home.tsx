@@ -1,15 +1,14 @@
-import { Component, ReactNode } from "react";
-import Post from "../../components/Post";
+import { Component } from "react";
 import Header from "../../components/Header";
+import Post from "../../components/Post";
+import "./home.css";
 import { PostDetails } from "../../types/PostDetails";
-
 
 type HomeProps = {};
 
 type HomeState = {
   postList: PostDetails[];
 };
-
 export default class Home extends Component<HomeProps, HomeState> {
   constructor(props: HomeProps) {
     super(props);
@@ -17,68 +16,36 @@ export default class Home extends Component<HomeProps, HomeState> {
       postList: [
         {
           id: "1",
-          title: "Lecture 1",
-          description: (
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Assumenda ducimus recusandae velit ullam, quos a eum consequuntur
-              et praesentium omnis nobis? Maxime velit nesciunt at aperiam
-              perspiciatis necessitatibus, itaque esse. Lorem, ipsum dolor sit
-              amet consectetur adipisicing elit. Assumenda ducimus recusandae
-              velit ullam, quos a eum consequuntur et praesentium omnis nobis?
-              Maxime velit nesciunt at aperiam perspiciatis necessitatibus,
-              itaque esse.
-            </p>
-          ),
-          hoursCount: 10,
+          title: "Lecture Day 01",
+          description:
+            "Lecture D01 - Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin",
+          hoursCount: 8,
           tags: ["intro", "typescript"],
         },
         {
           id: "2",
-          title: "Lecture 2",
-          description: (
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Assumenda ducimus recusandae velit ullam, quos a eum consequuntur
-              et praesentium omnis nobis? Maxime velit nesciunt at aperiam
-              perspiciatis necessitatibus, itaque esse. Lorem, ipsum dolor sit
-              amet consectetur adipisicing elit. Assumenda ducimus recusandae
-              velit ullam, quos a eum consequuntur et praesentium omnis nobis?
-              Maxime velit nesciunt at aperiam perspiciatis necessitatibus,
-              itaque esse.
-            </p>
-          ),
-          hoursCount: 8,
-          lecturerName: "Podi Sanu",
-          tags: ["ui", "ux"],
+          title: "Lecture Day 02",
+          description:
+            "Lecture D02 - Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin",
+          hoursCount: 6,
+          lecturerName: "Chanu",
+          tags: ["react", "tailwind"],
         },
         {
           id: "3",
-          title: "Lecture 3",
-          description: (
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Assumenda ducimus recusandae velit ullam, quos a eum consequuntur
-              et praesentium omnis nobis? Maxime velit nesciunt at aperiam
-              perspiciatis necessitatibus, itaque esse. Lorem, ipsum dolor sit
-              amet consectetur adipisicing elit. Assumenda ducimus recusandae
-              velit ullam, quos a eum consequuntur et praesentium omnis nobis?
-              Maxime velit nesciunt at aperiam perspiciatis necessitatibus,
-              itaque esse.
-            </p>
-          ),
-          hoursCount: 11,
-          tags: ["react", "tailwind"],
+          title: "Lecture Day 03",
+          description:
+            "Lecture D03 - Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin",
+          tags: ["Lifecycle", "rounting", "structure"],
         },
       ],
     };
   }
-
   render() {
     return (
       <>
         <Header />
-        <div className="p-6 mt-16">
+        <div className="p-6 mt-20">
           {this.state.postList.map((post, index) => (
             <Post
               key={post.id}
