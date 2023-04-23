@@ -1,89 +1,58 @@
-import { ChangeEvent, Component, ReactNode } from "react";
-import Post from "../../components/Post";
+import { ChangeEvent, Component } from "react";
 import Header from "../../components/Header";
+import Post from "../../components/Post";
 import { PostDetails } from "../../types/PostDetails";
-import AddBoxIcon from "@mui/icons-material/AddBox";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 import PostAddIcon from "@mui/icons-material/PostAdd";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { Divider, TextField } from "@mui/material";
-import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
 
 type ProfileProps = {};
 
 type ProfileState = {
-  posts: PostDetails[];
+  postList: PostDetails[];
   isClickedCreateNewPost: boolean;
   title: string;
   description: string;
   hoursCount: number;
-  lectureName: string;
+  lecturerName: string;
   tagString: string;
 };
 
 export default class Profile extends Component<ProfileProps, ProfileState> {
-  constructor(props: ProfileState) {
+  constructor(props: ProfileProps) {
     super(props);
     this.state = {
       title: "",
       description: "",
       hoursCount: 0,
-      lectureName: "",
+      lecturerName: "",
       tagString: "",
       isClickedCreateNewPost: false,
-      posts: [
+      postList: [
         {
           id: "1",
-          title: "Lecture 1",
-          description: (
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Assumenda ducimus recusandae velit ullam, quos a eum consequuntur
-              et praesentium omnis nobis? Maxime velit nesciunt at aperiam
-              perspiciatis necessitatibus, itaque esse. Lorem, ipsum dolor sit
-              amet consectetur adipisicing elit. Assumenda ducimus recusandae
-              velit ullam, quos a eum consequuntur et praesentium omnis nobis?
-              Maxime velit nesciunt at aperiam perspiciatis necessitatibus,
-              itaque esse.
-            </p>
-          ),
-          hoursCount: 10,
+          title: "Lecture Day 01",
+          description:
+            "Lecture D01 - Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin",
+          hoursCount: 8,
           tags: ["intro", "typescript"],
         },
         {
           id: "2",
-          title: "Lecture 2",
-          description: (
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Assumenda ducimus recusandae velit ullam, quos a eum consequuntur
-              et praesentium omnis nobis? Maxime velit nesciunt at aperiam
-              perspiciatis necessitatibus, itaque esse. Lorem, ipsum dolor sit
-              amet consectetur adipisicing elit. Assumenda ducimus recusandae
-              velit ullam, quos a eum consequuntur et praesentium omnis nobis?
-              Maxime velit nesciunt at aperiam perspiciatis necessitatibus,
-              itaque esse.
-            </p>
-          ),
-          hoursCount: 8,
-          lecturerName: "Podi Sanu",
-          tags: ["ui", "ux"],
+          title: "Lecture Day 02",
+          description:
+            "Lecture D02 - Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin",
+          hoursCount: 6,
+          lecturerName: "Chanu",
+          tags: ["react", "tailwind"],
         },
         {
           id: "3",
-          title: "Lecture 3",
-          description: (
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Assumenda ducimus recusandae velit ullam, quos a eum consequuntur
-              et praesentium omnis nobis? Maxime velit nesciunt at aperiam
-              perspiciatis necessitatibus, itaque esse. Lorem, ipsum dolor sit
-              amet consectetur adipisicing elit. Assumenda ducimus recusandae
-              velit ullam, quos a eum consequuntur et praesentium omnis nobis?
-              Maxime velit nesciunt at aperiam perspiciatis necessitatibus,
-              itaque esse.
-            </p>
-          ),
-          hoursCount: 11,
-          tags: ["react", "tailwind"],
+          title: "Lecture Day 03",
+          description:
+            "Lecture D03 - Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin",
+          tags: ["Lifecycle", "rounting", "structure"],
         },
       ],
     };
@@ -104,14 +73,14 @@ export default class Profile extends Component<ProfileProps, ProfileState> {
   handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     console.log("Changed");
     console.log(event.target.value);
-    
-      // desctructuring assignment
-      const { name, value } = event.target;
 
-      this.setState((prevState) => ({
-        ...prevState,
-        [name]: value,
-      }));
+    // desctructuring assignment
+    const { name, value } = event.target;
+
+    this.setState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
   render() {
@@ -123,14 +92,14 @@ export default class Profile extends Component<ProfileProps, ProfileState> {
             {!this.state.isClickedCreateNewPost ? (
               <>
                 <div
-                  className="cursor-pointer w-full p-4 bg-accent-navy-200 text-white rounded-2xl flex justify-between items-center"
+                  className="cursor-pointer w-full p-4 bg-accent-navy-200 text-white rounded flex justify-between items-center"
                   onClick={this.handleClickCreateNewPost}
                 >
                   <h6>Create New Post</h6>
-                  <AddBoxIcon />
+                  <AddCircleIcon />
                 </div>
                 <div
-                  className="cursor-pointer p-8 bg-white rounded-2xl text-slate-400 flex justify-center items-center space-x-3 border border-slate-400"
+                  className="cursor-pointer p-8 bg-white rounded text-slate-400 flex justify-center items-center space-x-3 border border-slate-400"
                   onClick={this.handleClickCreateNewPost}
                 >
                   <PostAddIcon />
@@ -140,13 +109,13 @@ export default class Profile extends Component<ProfileProps, ProfileState> {
             ) : (
               <>
                 <div
-                  className="cursor-pointer w-full p-4 bg-accent-navy-200 text-white rounded-2xl flex justify-between items-center"
+                  className="cursor-pointer w-full p-4 bg-accent-navy-200 text-white rounded flex justify-between items-center"
                   onClick={this.handleClickCreateNewPost}
                 >
                   <h6>Discard Post</h6>
-                  <IndeterminateCheckBoxIcon />
+                  <RemoveCircleIcon />
                 </div>
-                <div className="w-full cursor-pointer p-8 bg-white rounded-2xl text-slate-400 flex justify-center items-center space-x-3 border border-slate-400">
+                <div className="w-full cursor-pointer p-8 bg-white rounded text-slate-400 flex justify-center items-center space-x-3 border border-slate-400">
                   <form
                     className="flex flex-col space-y-3 w-full"
                     onSubmit={this.handleSubmit}
@@ -193,7 +162,7 @@ export default class Profile extends Component<ProfileProps, ProfileState> {
                       placeholder="Enter Lecturer Name"
                       name="lecturerName"
                       onChange={this.handleInputChange}
-                      value={this.state.lectureName}
+                      value={this.state.lecturerName}
                       fullWidth={true}
                     />
                     <TextField
@@ -218,14 +187,14 @@ export default class Profile extends Component<ProfileProps, ProfileState> {
 
           <Divider className="!my-5" />
 
-          {this.state.posts.map((post) => (
+          {this.state.postList.map((post) => (
             <Post
               key={post.id}
               title={post.title}
               description={post.description}
+              tags={post.tags}
               hoursCount={post.hoursCount}
               lecturerName={post.lecturerName}
-              tags={post.tags}
             />
           ))}
         </div>
