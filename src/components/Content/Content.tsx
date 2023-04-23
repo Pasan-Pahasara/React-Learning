@@ -4,9 +4,8 @@ import { Routes } from "react-router-dom";
 import About from "../../pages/About";
 import Contact from "../../pages/Contact";
 import Home from "../../pages/Home";
-import Profile from "../../pages/Profile"
+import Profile from "../../pages/Profile";
 import Login from "../../pages/Login";
-
 
 export default class Content extends Component {
   render() {

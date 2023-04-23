@@ -17,29 +17,43 @@ export default class Counter extends Component<CounterProps, CounterState> {
   }
 
   componentDidMount() {
-    console.log("Component Mounted...!")
+    console.log("Component Mounted...!");
   }
 
   componentDidUpdate() {
-    console.log("Component Updated...!")
+    console.log("Component Updated...!");
   }
 
   componentWillUnmount() {
-    console.log("Component Unmounted...!")
+    console.log("Component Unmounted...!");
   }
 
   increaseCount = () => {
     //increase count by one
-    this.setState({ count: this.state.count + 1 });
+
+    // Modifying the state directly is not a good practice in react
+    // It can be occured incorrect, unnecessary re-renderings and unexpected errors, behavours
+    // this.setState({ count: this.state.count + 1 });
+
+    // So, here we makes a copy of previous state modify the values
+    this.setState((prevState) => ({
+      ...prevState,
+      count: prevState.count + 1,
+    }));
   };
+
   decreaseCount = () => {
     //decrease count by one
-    this.setState({ count: this.state.count - 1 });
 
-    // this.setState((prevState)=>({
-    //   ...prevState,
-    //   count:prevState.count -1
-    // }))
+    // Modifying the state directly is not a good practice in react
+    // It can be occured incorrect, unnecessary re-renderings and unexpected errors, behavours
+    // this.setState({ count: this.state.count - 1 });
+
+    // So, here we makes a copy of previous state modify the values
+    this.setState((prevState) => ({
+      ...prevState,
+      count: prevState.count - 1,
+    }));
   };
 
   render() {
