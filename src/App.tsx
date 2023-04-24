@@ -16,13 +16,7 @@ export default class App extends Component {
 
   render(){
     return (
-      <div className="bg-yellow-50 min-h-screen">
-        {/* <Home/>
-        <About/>
-        <Contact/>
-        <Profile/> */}
-        {/* <Counter/> */}
-        {/* <Header/> */}
+      <div className="min-h-screen">
         <Content/>
     </div>
     );

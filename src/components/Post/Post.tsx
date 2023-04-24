@@ -8,7 +8,9 @@ type PostProps = {
   lecturerName?: string;
   tags: string[];
 };
+
 type PostState = {};
+
 export default class Post extends Component<PostProps, PostState> {
   render() {
     return (
@@ -27,6 +29,7 @@ export default class Post extends Component<PostProps, PostState> {
             </p>
           ) : null}
         </span>
+
         <span className="w-full mt-3 flex space-x-3">
           {this.props.tags.map((tagText, index) => (
             <Tag key={index} text={tagText} />

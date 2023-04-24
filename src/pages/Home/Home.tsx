@@ -9,6 +9,7 @@ type HomeProps = {};
 type HomeState = {
   postList: PostDetails[];
 };
+
 export default class Home extends Component<HomeProps, HomeState> {
   constructor(props: HomeProps) {
     super(props);
@@ -41,11 +42,12 @@ export default class Home extends Component<HomeProps, HomeState> {
       ],
     };
   }
+
   render() {
     return (
       <>
         <Header />
-        <div className="p-6 mt-20">
+        <div className="p-6 mt-20 rounded-lg">
           {this.state.postList.map((post, index) => (
             <Post
               key={post.id}
