@@ -6,6 +6,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import PostAddIcon from "@mui/icons-material/PostAdd";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { Divider, TextField } from "@mui/material";
+import api from "../../axios";
 
 type ProfileProps = {};
 
@@ -17,6 +18,7 @@ type ProfileState = {
   hoursCount: number;
   lecturerName: string;
   tagString: string;
+  categoryName: string;
 };
 
 export default class Profile extends Component<ProfileProps, ProfileState> {
@@ -29,34 +31,29 @@ export default class Profile extends Component<ProfileProps, ProfileState> {
       lecturerName: "",
       tagString: "",
       isClickedCreateNewPost: false,
-      postList: [
-        {
-          id: "1",
-          title: "Lecture Day 01",
-          description:
-            "Lecture D01 - Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin",
-          hoursCount: 8,
-          tags: ["intro", "typescript"],
-        },
-        {
-          id: "2",
-          title: "Lecture Day 02",
-          description:
-            "Lecture D02 - Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin",
-          hoursCount: 6,
-          lecturerName: "Chanu",
-          tags: ["react", "tailwind"],
-        },
-        {
-          id: "3",
-          title: "Lecture Day 03",
-          description:
-            "Lecture D03 - Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin  Lorem ipsum dolor sit amet consectetur, adipisicin",
-          tags: ["Lifecycle", "rounting", "structure"],
-        },
-      ],
+      categoryName: "",
+      postList: [],
     };
   }
+
+  componentDidMount(): void {
+    this.retrieveAllPosts();
+  }
+
+  retrieveAllPosts = () => {
+    api
+      .get("post")
+      .then((res) => {
+        console.log(res);
+        this.setState((prevState) => ({
+          ...prevState,
+          postList: res.data.responseData,
+        }));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   handleClickCreateNewPost = () => {
     this.setState((prevState) => ({
@@ -72,29 +69,40 @@ export default class Profile extends Component<ProfileProps, ProfileState> {
     console.log(this.state);
 
     // destructuring assignment
-    const { title, description, hoursCount, lecturerName, tagString } =
-      this.state;
+    const {
+      title,
+      categoryName,
+      description,
+      hoursCount,
+      lecturerName,
+      tagString,
+    } = this.state;
 
     let tagsArray = this.convertTagStringToArray(tagString);
 
     let newPost = {
-      id: "4",
       title: title,
       description: description,
       hoursCount: hoursCount,
       lecturerName: lecturerName,
       tags: tagsArray,
+      categoryName: categoryName,
     };
 
     // Here, you should pass the post object to back-end for the stroring purposes
 
-    // According to the response from bac-end, you should add the post object to the list
-
-    this.setState((prevState) => ({
-      postList: [newPost, ...prevState.postList],
-    }));
-
-    this.clearState();
+    api
+      .post("post", newPost)
+      .then((res) => {
+        console.log(res);
+        this.setState((prevState) => ({
+          postList: [...prevState.postList, res.data.responseData],
+        }));
+        this.clearState();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   convertTagStringToArray = (tagString: string): string[] => {
@@ -129,6 +137,13 @@ export default class Profile extends Component<ProfileProps, ProfileState> {
       hoursCount: 0,
       lecturerName: "",
       tagString: "",
+      categoryName: "",
+    }));
+  };
+
+  removePostFromList = (postId: string) => {
+    this.setState((prevstate) => ({
+      postList: prevstate.postList.filter((post) => post._id !== postId),
     }));
   };
 
@@ -177,6 +192,17 @@ export default class Profile extends Component<ProfileProps, ProfileState> {
                       placeholder="Enter post title"
                       onChange={this.handleInputChange}
                       value={this.state.title}
+                      fullWidth={true}
+                      required
+                    />
+                        <TextField
+                      label="Category"
+                      type="text"
+                      variant="outlined"
+                      name="categoryName"
+                      placeholder="Enter Category Name"
+                      onChange={this.handleInputChange}
+                      value={this.state.categoryName}
                       fullWidth={true}
                       required
                     />
@@ -238,12 +264,14 @@ export default class Profile extends Component<ProfileProps, ProfileState> {
 
           {this.state.postList.map((post) => (
             <Post
-              key={post.id}
+            key={post._id}
+            _id={post._id}
               title={post.title}
               description={post.description}
               tags={post.tags}
               hoursCount={post.hoursCount}
               lecturerName={post.lecturerName}
+              removePostFromList={this.removePostFromList}
             />
           ))}
         </div>
