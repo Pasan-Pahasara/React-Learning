@@ -10,6 +10,7 @@ type PostProps = {
   hoursCount?: number;
   lecturerName?: string;
   tags: string[];
+  removePostFromList?: (postId: string) => void;
 };
 
 type PostState = {};
