@@ -1,46 +1,145 @@
+##
+
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Project is introduced to FrontEnd Using React, TypeScript and Tailwind CSS
 
-## Available Scripts
+###  `FrontEnd`
+* React
+* TypeScript
+* Tailwind CSS
 
-In the project directory, you can run:
+##
 
-### `npm start`
+## **Create new index.ts**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **`Intall type script`**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+npm install -g typescript
+```
 
-### `npm test`
+- **`Fix the error`**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
 
-### `npm run build`
+- **`Run typeScript file`**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+tsc index.ts
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **`Run javaScript file`**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+node index.js
+```
 
-### `npm run eject`
+- **`Init project file`**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+tsc --init
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **`Refactor project and run`**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+tsc
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## React Application
 
-## Learn More
+- **`Install React`**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npx create-react-app test-app --template typescript
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **`Install Tailwind css and other libarary`**
+
+```
+npm install -D tailwindcss postcss autoprefixer
+```
+
+- **`Create Config File tailwindcss`**
+
+```
+npx tailwindcss init -p
+```
+
+- **`Config Tailwind CSS In VScode`**
+
+```
+Go to setting and search **Files assocition** set it `Item`:`*.css` `Value`:`tailwindcss`
+```
+
+- **`Install React Router DOM`**
+
+```
+npm i react-router-dom
+```
+
+- **`Install Material Icons`**
+
+```
+npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+```
+
+- **`Install Material UI`**
+
+```
+npm install @mui/material @emotion/react @emotion/styled
+```
+##
+
+#
+- **`Not Detected Node Modules`**
+```
+npm install
+```
+
+- **`Run Project`**
+```
+npm start
+```
+
+#  
+#### Clone this repository ✅
+```md
+https://github.com/Pasan-Pahasara/React-Learning.git
+```
+###                                              
+###### If you think my code is good pleace drop a Star <img src="https://github.com/Pasan-Pahasara/md-alpha/blob/main/star.webp" width="40px">
+
+![GitHub issues](https://img.shields.io/github/issues/Pasan-Pahasara/React-Learning?&labelColor=black&color=eb3b5a&label=Issues&logo=issues&logoColor=black&style=for-the-badge)
+![GitHub Contributions](https://img.shields.io/github/contributors/Pasan-Pahasara/React-Learning?&labelColor=black&color=8854d0&style=for-the-badge)
+
+### License 📝
+[![GitHub license](https://img.shields.io/github/license/Pasan-Pahasara/React-Learning?&labelColor=black&color=3867d6&style=for-the-badge)](https://github.com/Pasan-Pahasara/REST-API/blob/main/License)
+
+<div align="center">
+
+![repo size](https://img.shields.io/github/repo-size/Pasan-Pahasara/React-Learning?label=Repo%20Size&style=for-the-badge&labelColor=black&color=20bf6b)
+ 
+![GitHub forks](https://img.shields.io/github/forks/Pasan-Pahasara/React-Learning?&labelColor=black&color=0fb9b1&style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/Pasan-Pahasara/React-Learning?&labelColor=black&color=f7b731&style=for-the-badge)
+![GitHub LastCommit](https://img.shields.io/github/last-commit/Pasan-Pahasara/React-Learning?logo=github&labelColor=black&color=d1d8e0&style=for-the-badge)
+
+</div>
+
+<div align="center"> 
+If you have any questions or just wanna say hi, <br><b>MAIL ME</b>&nbsp;
+  <a href="mailto:pasanpahasara7788@gmail.com">
+      <img width="20px" src="https://github.com/Pasan-Pahasara/md-alpha/blob/main/gmail.svg" />
+  </a></p>
+ 
+ </div>
+
+<div align="center"> 
+ 
+#### Developed by [Pasan Pahasara](https://github.com/Pasan-Pahasara/) 
+</div>
+
+
